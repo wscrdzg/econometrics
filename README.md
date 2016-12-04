@@ -1,4 +1,4 @@
-# econometrics
+# Econometrics Final Project
 This is the econometrics group project
 Team member: Jeanette, Kota, Tony
 
