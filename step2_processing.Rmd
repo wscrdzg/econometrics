@@ -2,7 +2,6 @@
 title: "Assignment9"
 author: "Kota"
 date: "12/2/2016"
-output: pdf_document
 ---
 ```{r}
 download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/combined_data.txt",
