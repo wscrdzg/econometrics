@@ -119,9 +119,3 @@ legend("topright", c("linear", "square", "cube"), lty=c(1,1,1),
 
 Adjusted R-square: liner: 0.6897  quad: 0.6996  cubic: 0.7049
 The relationship between cc and racpp looks liner, and data explains liner cubic model explains it a little bit better. 
-
-# Problem 3: 3.	A table that shows your variable names and their definitions.
-
-Documentation for cdcbeacpi Data
-
-The datafile cdcbecpi contains data on all states about Cigarette in the US from 1970 to 2014. These data were provided by Centers for Disease Control and Prevention, which annually tracks data concerning about Tobacco including consumption of cigarette and governments’ policy by states. Bureau of Economic Analysis supplied data of income such as personal income and per capita income by states, and consumer price index is from Bereau of Labor Statistics. It has 2295 observations of 14 variables.
