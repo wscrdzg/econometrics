@@ -1,4 +1,4 @@
-# Inport saved file from github repo
+# Import saved file from github repo
 download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/cpi.csv",
               destfile = "cpi.csv")
 download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/cdc_tax.csv",
@@ -10,11 +10,9 @@ income_by_state <- read.csv("income_by_state.csv", na.strings = "(NA)")
 cdc <- read.csv("cdc_tax.csv")
 cpi <- read.csv("cpi.csv")
 
-install.packages("tidyr")
 library(tidyr)
 
 # rename the column
-names(cdc)
 colnames(cdc) <- c("year","state","Data.Source","Topic.Description","measure_disc","measure","data.units","value")
 
 # drop unnecessery columns
@@ -24,7 +22,6 @@ cdc <- cdc[c("year","state","measure","value")]
 cdc2 <- spread(cdc, key = measure, value = value)
 
 # and now rename cdc2
-names(cdc2)
 colnames(cdc2) <- c("year","state","cost_per_pack","pack_sales_per_capita","total_tax_percent_of_Price","tax_per_pack","gross_tax_revenue","state_tax_per_pack")
 
 library(ggplot2)
@@ -37,7 +34,6 @@ g + geom_line()
 colnames(income_by_state)[5:91] <- 1929:2015
 
 # only keep necessery columns
-names(income_by_state)
 keep <- setdiff(names(income_by_state), c("GeoFips","LineCode"))
 income_by_state <- income_by_state[,keep]
 
