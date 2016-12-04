@@ -1,3 +1,11 @@
+# Inport saved file from github repo
+download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/cpi.csv",
+              destfile = "cpi.csv")
+download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/cdc_tax.csv",
+              destfile = "cdc_tax.csv")
+download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/income_by_state.csv",
+              destfile = "income_by_state.csv")
+
 income_by_state <- read.csv("income_by_state.csv", na.strings = "(NA)")
 cdc <- read.csv("cdc_tax.csv")
 cpi <- read.csv("cpi.csv")
@@ -47,10 +55,25 @@ income_by_state2$state <- gsub(pattern = "*", replacement = "", x = income_by_st
 income_by_state3 <- subset(income_by_state2, year > 1969)
 income_n_cdc <- merge(income_by_state3, cdc2, by = c("year", "state"))
 
-library(lubridate)
-cpi$DATE <- ymd(cpi$DATE)
-cpi$DATE <- format(cpi$DATE, format="%Y")
 colnames(cpi) <- c("year", "cpi")
+base_cpi <- 236.736 # use 2014 as the base year
+cpi$inflation_factor <- cpi$cpi / base_cpi
 
 # now combine all into one called 'combined'
 combined <- merge(income_n_cdc, cpi, by = "year")
+combined$year <- as.numeric(combined$year)
+
+# ================================================================== #
+
+# rename all variable and add additional entries to combined data
+colnames(combined) <- c("year","name","acpp","cc","fstprp","fstpp","gctr","stpp","pcpi","pi","pop","cpi","inflation_factor")
+
+combined$racpp <- combined$acpp / combined$inflation_factor
+combined$rfstpp <- combined$fstpp / combined$inflation_factor
+combined$rgctr <- combined$gctr / combined$inflation_factor
+combined$rstpp <- combined$stpp / combined$inflation_factor
+combined$rpi <- combined$pi / combined$inflation_factor
+combined$rpcpi <- combined$pcpi / combined$inflation_factor
+
+# output combined tidy data
+write.table(combined, file = "cdcbeacpi.txt")
