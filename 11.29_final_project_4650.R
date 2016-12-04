@@ -40,3 +40,17 @@ colnames(income_by_state) <- c("state", "disc", "year", "value")
 income_by_state$value <- as.numeric(income_by_state$value)
 income_by_state2 <- spread(income_by_state, key = disc, value = value)
 income_by_state2$state <- gsub(pattern = "*", replacement = "", x = income_by_state2$state, fixed = T)
+
+# ================================================================== #
+
+# to combine all data
+income_by_state3 <- subset(income_by_state2, year > 1969)
+income_n_cdc <- merge(income_by_state3, cdc2, by = c("year", "state"))
+
+library(lubridate)
+cpi$DATE <- ymd(cpi$DATE)
+cpi$DATE <- format(cpi$DATE, format="%Y")
+colnames(cpi) <- c("year", "cpi")
+
+# now combine all into one called 'combined'
+combined <- merge(income_n_cdc, cpi, by = "year")
