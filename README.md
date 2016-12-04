@@ -7,6 +7,7 @@ Source of data:
 The tax on cigarettes data is from CDC website, cpi is from BLS website, and income and population by states is from BEA website.
 
 In step 1, the 3 datasets have been merged into one data frame, and the columns has been renamed for later processing.
+
 In addition, all the prices were adjusted by inflation using 2014 as base year.
 (see attached codebook for detail)
 
