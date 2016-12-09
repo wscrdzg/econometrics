@@ -77,7 +77,7 @@ combined$rgctr <- combined$gctr / combined$inflation_factor
 combined$rstpp <- combined$stpp / combined$inflation_factor
 combined$rpi <- combined$pi / combined$inflation_factor
 combined$rpcpi <- combined$pcpi / combined$inflation_factor
-conbined$rgstpp <- combined$gstpp / combined$inflation_factor
+combined$rgstpp <- combined$gstpp / combined$inflation_factor
 
 # output combined tidy data
 write.table(combined, file = "combined_data.txt")
