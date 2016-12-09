@@ -52,7 +52,7 @@ income_by_state2$state <- gsub(pattern = "*", replacement = "", x = income_by_st
 
 # to combine all data
 income_by_state3 <- subset(income_by_state2, year > 1969)
-income_n_cdc <- merge(income_by_state3, cdc2, by = c("year", "state"))
+income_n_cdc <- merge(cdc2,income_by_state3, by = c("year", "state"))
 income_n_cdc2 <- merge(income_n_cdc, gst, by = c("year", "state"))
 
 colnames(cpi) <- c("year", "cpi")
