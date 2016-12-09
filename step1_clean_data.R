@@ -76,4 +76,4 @@ combined$rpi <- combined$pi / combined$inflation_factor
 combined$rpcpi <- combined$pcpi / combined$inflation_factor
 
 # output combined tidy data
-write.table(combined, file = "cdcbeacpi.txt")
+write.table(combined, file = "combined_data.txt")
