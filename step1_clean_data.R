@@ -5,10 +5,13 @@ download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/cdc
               destfile = "cdc_tax.csv")
 download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/income_by_state.csv",
               destfile = "income_by_state.csv")
+download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/general_sales_tax.csv",
+              destfile = "gst.csv")
 
 income_by_state <- read.csv("income_by_state.csv", na.strings = "(NA)")
 cdc <- read.csv("cdc_tax.csv")
 cpi <- read.csv("cpi.csv")
+gst <- read.csv("gst.csv")
 
 library(tidyr)
 
@@ -50,19 +53,20 @@ income_by_state2$state <- gsub(pattern = "*", replacement = "", x = income_by_st
 # to combine all data
 income_by_state3 <- subset(income_by_state2, year > 1969)
 income_n_cdc <- merge(income_by_state3, cdc2, by = c("year", "state"))
+income_n_cdc2 <- merge(income_n_cdc, gst, by = c("year", "state"))
 
 colnames(cpi) <- c("year", "cpi")
 base_cpi <- 236.736 # use 2014 as the base year
 cpi$inflation_factor <- cpi$cpi / base_cpi
 
 # now combine all into one called 'combined'
-combined <- merge(income_n_cdc, cpi, by = "year")
+combined <- merge(income_n_cdc2, cpi, by = "year")
 combined$year <- as.numeric(combined$year)
 
 # ================================================================== #
 
 # rename all variable and add additional entries to combined data
-colnames(combined) <- c("year","name","acpp","cc","fstprp","fstpp","gctr","stpp","pcpi","pi","pop","cpi","inflation_factor")
+colnames(combined) <- c("year","name","acpp","cc","fstprp","fstpp","gctr","stpp","pcpi","pi","pop","gstpp","cpi","inflation_factor")
 
 combined$racpp <- combined$acpp / combined$inflation_factor
 combined$rfstpp <- combined$fstpp / combined$inflation_factor
