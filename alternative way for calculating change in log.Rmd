@@ -1,4 +1,4 @@
-# subset year 1996 and 2014
+subset year 1996 and 2014
 ```{r}
 data96_14 <- subset(combined, year == 1996 | year == 2014)
 data96_14 <- data96_14[c("year","name","cc","racpp","rstpp","rpcpi","rgstpp")]
