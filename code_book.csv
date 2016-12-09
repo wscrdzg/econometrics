@@ -1,0 +1,25 @@
+Name Definition
+year, Year of data
+name, Name of state (Alabama, Alaska, etc.)
+acpp, Average nominal cost of cigarettes (dollars per pack)
+cc, Cigarette consumption per capita (packs per year)
+fstprp, Federal and state cigarette-specific taxes as a percentage of the retail price
+of cigarettes
+fstpp, Federal and state cigarette-specific nominal taxes (dollars per pack)
+gctr, Gross cigarette-specific nominal tax revenues (dollars)
+stpp, State cigarette-specific nominal tax (dollars per pack)
+gstpp, General sales tax (cents per pack)
+pi, Nominal personal income (dollars)
+pcpi, Per capita nomial personal income (dollars)
+pop, Population
+cpi, CPI value (All urban consumers)
+inflation_factor, Factor by which to multiply a dollar in a given year to make it equivalent to
+a dollar in the base year (2014)
+racpp, Average real cost of cigarettes (2014 dollars per pack)
+rfstpp, Federal and state cigarette-specific real taxes (2014 dollars per pack)
+rgctr, Gross cigarette-specific real tax revenues (2014 dollars)
+rstpp, State cigarette-specific nominal tax (2014 dollars per pack)
+rpi, Real personal income (2014 dollars)
+rpcpi, Per capita real personal income (2014 dollars)
+rgstpp, General sales tax (2014 cents per pack)
+ravgprs, Real average price including sales tax
