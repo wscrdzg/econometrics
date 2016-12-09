@@ -68,6 +68,9 @@ combined$year <- as.numeric(combined$year)
 # rename all variable and add additional entries to combined data
 colnames(combined) <- c("year","name","acpp","cc","fstprp","fstpp","gctr","stpp","pcpi","pi","pop","gstpp","cpi","inflation_factor")
 
+# that gstpp is cent per pack, now we convert it to dollar per pack
+combined$gstpp <- combined$gstpp / 100
+
 combined$racpp <- combined$acpp / combined$inflation_factor
 combined$rfstpp <- combined$fstpp / combined$inflation_factor
 combined$rgctr <- combined$gctr / combined$inflation_factor
