@@ -22,25 +22,25 @@ Residual Std. Error    0.26 (df = 2293) 0.26 (df = 2292) 0.27 (df = 2292)
 **Significant at the 1 percent level.                                    
 *Significant at the 5 percent level.                                     
 
-==================================================
+============================================================================
                                 ∆ln(consumption)  
-                               (1)    (2)    (3)  
---------------------------------------------------
-∆ln(price)                    -1.16  -0.76  -0.86 
-                              (1.11) (0.52) (0.55)
+                               (1)             (2)             (3)  
+----------------------------------------------------------------------------
+∆ln(price)                    -1.16           -0.76           -0.86 
+                              (1.11)          (0.52)          (0.55)
                                                   
-∆ln(income)                    0.45   0.43   0.44 
-                              (0.30) (0.33) (0.31)
+∆ln(income)                    0.45            0.43            0.44 
+                              (0.30)          (0.33)          (0.31)
                                                   
-Constant                       0.03  -0.27  -0.20 
-                              (0.83) (0.41) (0.42)
+Constant                       0.03           -0.27           -0.20 
+                              (0.83)          (0.41)          (0.42)
                                                   
-Instrumental Variables        rgstpp rgctr   both 
-Observations                    51     51     51  
-R2                             0.27   0.26   0.27 
-Adjusted R2                    0.24   0.23   0.24 
-Residual Std. Error (df = 48)  0.21   0.21   0.21 
---------------------------------------------------
+Instrumental Variables        rgstpp          rgctr            both 
+Observations                    51              51              51  
+R2                             0.27            0.26            0.27 
+Adjusted R2                    0.24            0.23            0.24 
+Residual Std. Error (df = 48)  0.21            0.21            0.21 
+----------------------------------------------------------------------------
 ***Significant at the 0.1 percent level.          
 **Significant at the 1 percent level.             
 *Significant at the 5 percent level.              
