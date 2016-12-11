@@ -1,7 +1,7 @@
 ---
-title: "Assignment9"
+title: "Step2: process and analyze data"
 author: "Kota"
-date: "12/2/2016"
+date: "12/11/2016"
 ---
 ```{r}
 download.file("https://raw.githubusercontent.com/wscrdzg/econometrics/master/combined_data.txt",
@@ -15,39 +15,40 @@ library(tidyr)
 library(AER)
 ```
 
-4: 
+# Price 
 A graph of the inflation-adjusted price of cigarettes by state 1970–2014
 calculate the price use racpp + rgstpp
 ```{r}
 combined$ravgprs <- combined$racpp + combined$rgstpp
 
 g1 <- ggplot(data = combined, aes(x = year, y = ravgprs, group = name, color = name))
-g1 + geom_line() + theme(legend.position = "bottom")
+g1 + geom_line() + theme(legend.position = "none")
 ```
 
-Problem 5: A graph of average cigarette consumption by state 1970–2014
-
+# Consumption by state
+A graph of average cigarette consumption by state 1970–2014
 ```{r}
 g2 <- ggplot(data = combined, aes(x = year, y = cc, group = name, color = name))
-g2 + geom_line() + theme(legend.position = "bottom")
+g2 + geom_line() + theme(legend.position = "none")
 ```
 
-Problem 6: A graph of average cigarette consumption by year (across all states) 1970-2014
-
+# Consumption by year
+A graph of average cigarette consumption by year (across all states) 1970-2014
 ```{r}
 p6 <- aggregate(cc ~ year, FUN = mean, data = combined)
 g3 <- ggplot(data = p6, aes(x = year, y = cc))
 g3 + geom_line()
 ```
-
-Problem 7: A graph of average price by year (across all states) 1970–2014
+# Average price by year
+A graph of average price by year (across all states) 1970–2014
 ```{r}
 p7 <- aggregate(ravgprs ~ year, FUN = mean, data = combined)
 g4 <- ggplot(data = p7, aes(x = year, y = ravgprs))
 g4 + geom_line()
 ```
 
-problem 8: Scatterplot of consumption (Y axis) and inflation-adjusted prices (X axis)
+# Relation of consumption and price
+Scatterplot of consumption (Y axis) and inflation-adjusted prices (X axis)
 
 linear
 ```{r}
@@ -86,7 +87,8 @@ rm("mnd")
 
 Adjusted R-square: liner: 0.5814 quad: 0.6172 cubic: 0.6258 The relationship between cc and racpp doesn’t look liner, and data explains liner cubic model explains it better.
 
-problem 9: Repeat the scatterplot but now using log consumption and log prices
+# Relation: ln(consumption) and ln(price)
+Repeat the scatterplot but now using log consumption and log prices
 
 ```{r}
 log_ravgprs <- log(combined$ravgprs)
@@ -130,7 +132,9 @@ legend("topright", c("linear", "square", "cube"), lty=c(1,1,1),
 
 Adjusted R-square: liner: 0.6952 quad: 0.7067 cubic: 0.7127 The relationship between cc and racpp looks liner, and data explains liner cubic model explains it a little bit better.
 
-# Use sales tax as an instrument for price
+# ln(cc) ~
+# Instrument variable: sales tax
+Use sales tax as an instrument for price
 ```{r}
 fit.iv1 <- ivreg(log(cc) ~ log(racpp) | rgstpp, data = combined)
 summary(fit.iv1)
@@ -151,7 +155,8 @@ summary(fit.iv3)
 coeftest(fit.iv3, vcov = vcovHC(fit.iv3, "HC1"))
 ```
 
-# now use change in log as regressor
+# delta ln()
+now use change in log as regressor
 ```{r}
 data96 <- subset(combined, year == 1996)
 data14 <- subset(combined, year == 2014)
