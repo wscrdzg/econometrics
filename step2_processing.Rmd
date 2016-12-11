@@ -48,7 +48,6 @@ g4 + geom_line()
 ```
 
 # Relation of consumption and price
-Scatterplot of consumption (Y axis) and inflation-adjusted prices (X axis)
 
 linear
 ```{r}
@@ -74,7 +73,7 @@ summary(fit3)
 
 mnd$pred_cubic <- predict(fit3, mnd)
 ```
-
+Scatterplot of consumption (Y axis) and inflation-adjusted prices (X axis)
 ```{r}
 plot(x = combined$ravgprs, y = combined$cc, pch = 20, col = alpha("black", 0.4))
 lines(pred ~ ravgprs, col = "red", data = mnd)
@@ -88,7 +87,6 @@ rm("mnd")
 Adjusted R-square: liner: 0.5814 quad: 0.6172 cubic: 0.6258 The relationship between cc and racpp doesn’t look liner, and data explains liner cubic model explains it better.
 
 # Relation: ln(consumption) and ln(price)
-Repeat the scatterplot but now using log consumption and log prices
 
 ```{r}
 log_ravgprs <- log(combined$ravgprs)
@@ -120,7 +118,7 @@ summary(fit6)
 
 mnd$pred_cubic <- predict(fit6, mnd)
 ```
-
+Repeat the scatterplot but now using log consumption and log prices
 ```{r}
 plot(x = log_ravgprs, y = log_cc, pch = 20, col = alpha("black", 0.4))
 lines(pred ~ log_ravgprs, col = "red", data = mnd)
