@@ -132,8 +132,7 @@ legend("topright", c("linear", "square", "cube"), lty=c(1,1,1),
 
 Adjusted R-square: liner: 0.6952 quad: 0.7067 cubic: 0.7127 The relationship between cc and racpp looks liner, and data explains liner cubic model explains it a little bit better.
 
-# ln(cc) ~
-# Instrument variable: sales tax
+# ln(cc) ~  |  Instrument variable: sales tax
 Use sales tax as an instrument for price
 ```{r}
 fit.iv1 <- ivreg(log(cc) ~ log(racpp) | rgstpp, data = combined)
