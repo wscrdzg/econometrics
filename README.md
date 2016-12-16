@@ -2,7 +2,7 @@
 This readme file contains basic process of the project, further conclusion is saved in this repo
 named "Conclusion.pdf".
 
-Team member: Jeanette, Kota, Tonyinflation 
+Team member: Jeanette, Kota, Tony
 
 Source of Data:
 CDC, BLS, BEA
