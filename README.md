@@ -1,33 +1,56 @@
 # Econometrics Final Project
-This is the econometrics group project
-of 
+This readme file contains basic process of the project, further conclusion is saved in this repo
+named "Conclusion.pdf".
+
 Team member: Jeanette, Kota, Tonyinflation 
 
 Source of Data:
 CDC, BLS, BEA
 
-SURGEON GENERAL'S WARNING: Smoking Causes Lung Cancer, Heart Disease, Emphysema, And May Complicate Pregnancy. SURGEON GENERAL'S WARNING: Quitting Smoking Now Greatly Reduces Serious Risks to Your Health.
-The glaring warning on a package of cigarettes ought to cause a smoker to take pause before lighting up a cigarette.  And yet, the shocking warning label has not been enough to reduce smoking rates among the citizens of Utah.  Long term risks of smoking include cancer, heart disease, emphysema, and stroke, to name just a few serious diseases, although smoking harms every part of the body.  Cigarettes pose a  risk to non-smokers too.  The dangers of breathing second hand smoke have been well documented to show adverse and immediate effects on the cardiovascular system.  Exposure to second hand smoke is a real danger to children, in particular, who don’t have the option of removing themselves from smoky environments.  There are multiple public externalities associated with cigarette smoke, including the financial burden on the health care system.  In a quest to reduce illness and deaths from smoking, and the externalities imposed on the rest of society, lawmakers have proposed a tax hike on cigarettes in order to encourage current smokers to cut back and to deter potential new smokers from taking up the habit.  A team of economists, Tony, Kota, and Jeanette, from the Utah Department of Health, have been commissioned to compile an analysis to determine the size of a tax hike required in order to achieve a 20% reduction in cigarette consumption.  These findings will be presented in a legislative session where laws determining public policy will be made.  
+This repo contains all the datasets we used for the project.
 
- “What would the after-tax sales price of cigarettes need to be to achieve a 20% reduction in cigarette consumption?”  In order to answer this question, we need to examine data on the prices and sales of cigarettes and estimate the elasticity of demand. First, data was extracted from Government Agency records to ensure that the numbers we used were reliable.  The CDC provides the base source of data on the tax burden of tobacco and the negative financial effects of tobacco on public health.  Using the CPI data from the BLS, we 
-We gathered data from Government Agencies to ensure that the numbers we used came from reliable sources.  The CDC provides a large source of data on the tax burden of tobacco and the negative financial effects of tobacco on public health. The BEA website provided state personal income data, from which we calculated the per capita income values.  We collected CPI data from the BLS and used the year 2014 as the base year to adjust for inflation.  All variables with dollars as units have been converted to real 2014 dollars in order to make accurate comparisons.  A panel data structure was used in order to eliminate the influence of factors that vary across states.  We analyzed changes over time using the log functions. Ultimately our goal was to compare the cigarette consuption (defined as the number of packs of cigarettes sold per capita in a particular state, with the Price (average real price per pack of cigarettes including all taxes.
+The analysis contains 2 main steps: 
+The first step is to combine all datasets into one, and edited for further process. The combined
+dataset is also stored in the repo named as "combined.txt".
 
-In step 1, the 3 datasets have been merged into one data frame, and the columns has been renamed for later processing.
+The second step is to analyze the data, and the process is listed below:
 
-In addition, all the prices were adjusted by inflation using 2014 as base year.
-(see attached codebook for detail)
+1. Graphically show:
+The inflation-adjusted price of cigarettes by state 1970–2014.
 
-In step 2, following steps has been done to analyze the data:
+2. Graphically show:
+Average cigarette consumption by state 1970–2014.
 
-1. Graphically showed the inflation-adjusted price of cigarettes by state 1970–2014.
+3. Graphically show:
+Average cigarette consumption by year (across all states) 1970–2014.
 
-2. Graphically showed the average cigarette consumption by state 1970–2014.
+4. Graphically show: 
+Average price by year (across all states) 1970–2014.
 
-3. Graphically showed the average cigarette consumption by year (across all states) 1970–2014.
+5. Graph:
+Scatterplot of consumption (Y axis) and inflation-adjusted prices (X axis).
 
-4. Graphically showed the average price by year (across all states) 1970–2014.
+6. Using this dataset carry out analyses the parallel those presented in Chapter 12 of the text.
+Present these analyses in a single table, similar to Table 12.1 in the text. In cases where the 
+analysis is cross-sectional, use year-2014 data. In cases where the analysis is in differences, 
+use 2014 as the “after” year and 1996 as the “before”.
 
-5. Generated a scatterplot of consumption and inflation-adjusted prices.
+The following regressions have been run:
 
-6. Generated another scatterplot using log consumption and log prices.
+log(consumption) ~ log(price) 
+Use sales tax as an instrument for price.
 
+log(consumption) ~ log(price) + log(income) 
+Use sales tax as an instrument for price.
+
+log(consumption) ~ log(price) + log(income) 
+Use the cigarette-specific tax as an instrument for price.
+
+Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+Use sales tax as an instrument for price.
+
+Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+Use the cigarette-specific tax as an instrument for price.
+
+Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+Use sales tax & the cigarette-specific tax as an instrument for price.
