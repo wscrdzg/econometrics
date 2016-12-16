@@ -13,7 +13,7 @@ The analysis contains 2 main steps:
 The first step is to combine all datasets into one, and edited for further process. The combined
 dataset is also stored in the repo named as "combined.txt".
 
-The second step is to analyze the data, and the process is listed below:
+The second step is to analyze the data, and the process is listed below: (the step 2 markdown file can run independent from step 1)
 
 1. Graphically show:
 The inflation-adjusted price of cigarettes by state 1970–2014.
