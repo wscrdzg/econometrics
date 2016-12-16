@@ -35,22 +35,22 @@ Present these analyses in a single table, similar to Table 12.1 in the text. In 
 analysis is cross-sectional, use year-2014 data. In cases where the analysis is in differences, 
 use 2014 as the “after” year and 1996 as the “before”.
 
-The following regressions have been run:
+  The following regressions have been run:
 
-log(consumption) ~ log(price) 
-Use sales tax as an instrument for price.
+  log(consumption) ~ log(price) 
+  Use sales tax as an instrument for price.
 
-log(consumption) ~ log(price) + log(income) 
-Use sales tax as an instrument for price.
+  log(consumption) ~ log(price) + log(income) 
+  Use sales tax as an instrument for price.
 
-log(consumption) ~ log(price) + log(income) 
-Use the cigarette-specific tax as an instrument for price.
+  log(consumption) ~ log(price) + log(income) 
+  Use the cigarette-specific tax as an instrument for price.
 
-Δlog(consumption) ~ Δlog(price) + Δlog(income) 
-Use sales tax as an instrument for price.
+  Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+  Use sales tax as an instrument for price.
 
-Δlog(consumption) ~ Δlog(price) + Δlog(income) 
-Use the cigarette-specific tax as an instrument for price.
+  Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+  Use the cigarette-specific tax as an instrument for price.
 
-Δlog(consumption) ~ Δlog(price) + Δlog(income) 
-Use sales tax & the cigarette-specific tax as an instrument for price.
+  Δlog(consumption) ~ Δlog(price) + Δlog(income) 
+  Use sales tax & the cigarette-specific tax as an instrument for price.
